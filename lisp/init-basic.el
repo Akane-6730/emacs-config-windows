@@ -80,9 +80,5 @@
       '((lambda ()
           (string-suffix-p "gpg" (file-name-extension (buffer-name)) t))))
 
-;; Set home
-(setenv "HOME" "C:/Users/71010/")
-
 (provide 'init-basic)
 ;;; init-basic.el ends here
-
