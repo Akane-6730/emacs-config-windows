@@ -73,8 +73,7 @@
   (after-init . global-corfu-mode)
   :config
   (global-corfu-mode)
-  (add-hook 'shell-mode-hook (lambda () (corfu-mode -1)))
-  (add-hook 'eshell-mode-hook (lambda () (corfu-mode -1))))
+  (define-key corfu-map (kbd "RET") nil))
 
 ;; nerd-icons-corfu: add icons to corfu completions
 (use-package nerd-icons-corfu
@@ -104,6 +103,14 @@
 (use-package which-key
   :ensure t
   :hook (after-init . which-key-mode))
+
+(use-package lsp-bridge
+  :ensure nil
+  :hook ((prog-mode . lsp-bridge-mode)
+         (org-mode . lsp-bridge-mode))
+  :config
+  (define-key acm-mode-map (kbd "RET") 'newline)
+  (define-key acm-mode-map (kbd "<return>") 'newline))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here
